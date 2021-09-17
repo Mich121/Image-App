@@ -26,7 +26,7 @@
             <a class="nav-link active" aria-current="page" href="{% url 'home' %}"><span span id="navicon" class="material-icons-outlined">home</span></a>
             <p style="margin-left: 15px;">Home</p>
           </li>
-          {% if user.is_authenticated %} <!--if you log in-->
+          {% if user.is_authenticated %} <!--if you log in-->         
             <li class="nav-item">
               <a class="nav-link" href="{% url 'logout' %}"><span span id="navicon" class="material-icons-outlined">logout</span></a>
               <p style="margin-left: 15px;">Logout</p>

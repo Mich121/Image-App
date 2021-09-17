@@ -5,7 +5,6 @@ from django.shortcuts import render
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.mixins import LoginRequiredMixin
-
 # Create your views here.
 class Home(LoginRequiredMixin, generic.TemplateView):
     template_name = 'home.html'
@@ -20,3 +19,10 @@ class AddImage(LoginRequiredMixin, generics.CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
+class MyImages(LoginRequiredMixin, generics.ListCreateAPIView):
+    permission_classes = [IsAuthenticated]
+    serializer_class = ImageSerializer
+    login_url = 'login'
+
+    def get_queryset(self):
+        return Images.objects.filter(owner=self.request.user)

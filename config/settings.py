@@ -39,7 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'profiles',
-    'website',
+    'website.apps.WebsiteConfig',
     'rest_framework',
 ]
 

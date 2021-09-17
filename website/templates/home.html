@@ -2,11 +2,11 @@
 
 {% block content %}
     <div style="display: inline;">
-        <a href="{% url 'upload_image' %}" style="text-decoration: none; color:white;">
-        <button type="button" class="btn btn-danger btn-lg btn-block" style="height: 200px; width: 200px;">Upload Image</button>
+        <a href="{% url 'upload_image' %}" style="text-decoration: none;">
+        <button type="button" class="btn btn-danger btn-lg btn-block" style="height: 200px; width: 200px; color:white;">Upload Image</button>
         </a>        
-        <a href="#" style="text-decoration: none; color:white;">
-            <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 200px; width: 200px;">My Images</button>
+        <a href="{% url 'my_images' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 200px; width: 200px; color:white;">My Images</button>
         </a>
     </div>
 {% endblock content %}  

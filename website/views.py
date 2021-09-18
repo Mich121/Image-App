@@ -1,10 +1,7 @@
-from django.db.models.query import QuerySet
-from django.db.models.sql import query
 from django.views import generic
 from website.serializers import ImageSerializer, Thumbnail_Basic_Serializer, Thumbnail_Premium_Serializer, Thumbnail_Enterprise_Serializer
 from .models import Images, Thumbnail_Basic, Thumbnail_Premium, Thumbnail_Enterprise
-from django.shortcuts import render
-from rest_framework import generics, serializers
+from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.mixins import LoginRequiredMixin
 

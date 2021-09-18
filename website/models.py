@@ -1,3 +1,4 @@
+from PIL.Image import blend
 from django.db import models
 from profiles.models import CustomUser
 from django.urls import reverse
@@ -13,23 +14,26 @@ class Images(models.Model):
     def __str__(self):
         return self.title + ' | ' + str(self.owner)
 
-class Thumbnail_200(models.Model):
+class Thumbnail_Basic(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
-    thumb_200 = models.ImageField(),
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    thumb_basic = models.ImageField(upload_to='thumbnails/', blank=True),
 
     def __str__(self):
-        return str(self.image_id) + '_200_'
+        return str(self.image_id.title) + '_thumbnail_basic_' + ' | '  + str(self.image_id.owner)
         
-class Thumbnail_400(models.Model):
+class Thumbnail_Premium(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
-    thumb_400 = models.ImageField(),
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    thumb_premium = models.ImageField(upload_to='thumbnails/', blank=True),
 
     def __str__(self):
-        return str(self.image_id) + '_400_'
+        return str(self.image_id.title) + '_thumbnail_premium_' + ' | '  + str(self.image_id.owner)
         
-class Thumbnail_Original(models.Model):
+class Thumbnail_Enterprise(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
-    thumb_original = models.ImageField(),
+    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
+    thumb_enterprise = models.ImageField(upload_to='thumbnails/', blank=True),
 
     def __str__(self):
-        return str(self.image_id) + '_original_'
+        return str(self.image_id.title) + '_thumbnail_enterprise_' + ' | ' + str(self.image_id.owner)

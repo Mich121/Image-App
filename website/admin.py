@@ -1,8 +1,8 @@
 from django.contrib import admin
-from .models import Images, Thumbnail_Original, Thumbnail_200, Thumbnail_400
+from .models import Images, Thumbnail_Enterprise, Thumbnail_Basic, Thumbnail_Premium
 
 # Register your models here.
 admin.site.register(Images)
-admin.site.register(Thumbnail_200)
-admin.site.register(Thumbnail_400)
-admin.site.register(Thumbnail_Original)
+admin.site.register(Thumbnail_Basic)
+admin.site.register(Thumbnail_Premium)
+admin.site.register(Thumbnail_Enterprise)

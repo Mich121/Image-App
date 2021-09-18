@@ -3,10 +3,23 @@
 {% block content %}
     <div style="display: inline;">
         <a href="{% url 'upload_image' %}" style="text-decoration: none;">
-        <button type="button" class="btn btn-danger btn-lg btn-block" style="height: 200px; width: 200px; color:white;">Upload Image</button>
+        <button type="button" class="btn btn-danger btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Upload Image</button>
         </a>        
         <a href="{% url 'my_images' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 200px; width: 200px; color:white;">My Images</button>
+            <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Images</button>
         </a>
+        <a href="{% url 'my_thumbnails_basic' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Basic</button>
+        </a>
+        {% if user.premium or user.enterprise %}      
+        <a href="{% url 'my_thumbnails_premium' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Premium</button>
+        </a> 
+        {% endif %}
+        {% if user.enterprise %}        
+        <a href="{% url 'my_thumbnails_enterprise' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Enterprise</button>
+        </a> 
+        {% endif %} 
     </div>
 {% endblock content %}  

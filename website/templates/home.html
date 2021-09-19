@@ -2,22 +2,37 @@
 
 {% block content %}
     <div style="display: inline;">
+        <div style="padding-top: 15px;">
         <a href="{% url 'upload_image' %}" style="text-decoration: none;">
         <button type="button" class="btn btn-danger btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Upload Image</button>
         </a>        
         <a href="{% url 'my_images' %}" style="text-decoration: none;">
             <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Images</button>
         </a>
+        {% if user.basic or user.premium or user.enterprise %}
         <a href="{% url 'my_thumbnails_200' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 200</button>
+            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Links to 200 thumbnails</button>
         </a>
+        {% endif %}
         {% if user.premium or user.enterprise %}     
         <a href="{% url 'my_thumbnails_400' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 400</button>
+            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Link to 400 thumbnails</button>
         </a> 
+        {% endif %}
+        {% if user.premium or user.enterprise or user.is_staff %}   
         <a href="{% url 'my_images_link' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Images Link</button>
-        </a>    
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Link to originally uploaded images</button>
+        </a>
         {% endif %} 
+        {% if user.is_staff %}
+        <hr>
+        <a href="{% url 'create_configurable_thumb' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">Make configurable thumbnail</button>
+        </a>        
+        <a href="{% url 'my_configurable_thumb' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My configurable thumbnail</button>
+        </a>
+        {% endif %}
+        </div>
     </div>
 {% endblock content %}  

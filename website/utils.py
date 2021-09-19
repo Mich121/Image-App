@@ -1,4 +1,4 @@
-from .models import Thumbnail_200, Thumbnail_400
+from .models import Thumbnail_200, Thumbnail_400, Thumbnail_Configurable
 from PIL import Image
 
 def Make_Thumbnail(path, height, width, name, instance):

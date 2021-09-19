@@ -8,4 +8,6 @@ urlpatterns = [
     path('my_images/', views.MyImages.as_view(), name='my_images'),
     path('my_thumbnails_200/', views.MyThumbnails_200.as_view(), name='my_thumbnails_200'),
     path('my_thumbnails_400/', views.MyThumbnails_400.as_view(), name='my_thumbnails_400'),
+    path('create_configurable_thumb/', views.CreateConfigurableThumbnails.as_view(), name='create_configurable_thumb'),
+    path('my_configurable_thumb/', views.MyConfigurableThumbnails.as_view(), name='my_configurable_thumb'),
 ]

@@ -12,26 +12,26 @@ class Images(models.Model):
     def __str__(self):
         return self.title + ' | ' + str(self.owner)
 
-class Thumbnail_Basic(models.Model):
+class Thumbnail_200(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    thumb_basic = models.ImageField(upload_to='thumbnails/')
+    thumb_200 = models.ImageField(upload_to='thumbnails/')
 
     def __str__(self):
-        return str(self.image_id.title) + '_thumbnail_basic_' + ' | '  + str(self.image_id.owner)
+        return str(self.image_id.title) + '_thumbnail_200_' + ' | '  + str(self.image_id.owner)
         
-class Thumbnail_Premium(models.Model):
+class Thumbnail_400(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    thumb_premium = models.ImageField(upload_to='thumbnails/')
+    thumb_400 = models.ImageField(upload_to='thumbnails/')
 
     def __str__(self):
-        return str(self.image_id.title) + '_thumbnail_premium_' + ' | '  + str(self.image_id.owner)
+        return str(self.image_id.title) + '_thumbnail_400_' + ' | '  + str(self.image_id.owner)
         
-class Thumbnail_Enterprise(models.Model):
+class Thumbnail_Original(models.Model):
     image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
     owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    thumb_enterprise = models.ImageField(upload_to='thumbnails/')
+    thumb_original = models.ImageField(upload_to='thumbnails/')
 
     def __str__(self):
-        return str(self.image_id.title) + '_thumbnail_enterprise_' + ' | ' + str(self.image_id.owner)
+        return str(self.image_id.title) + '_thumbnail_original_' + ' | ' + str(self.image_id.owner)

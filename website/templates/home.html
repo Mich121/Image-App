@@ -8,17 +8,15 @@
         <a href="{% url 'my_images' %}" style="text-decoration: none;">
             <button type="button" class="btn btn-warning btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Images</button>
         </a>
-        <a href="{% url 'my_thumbnails_basic' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Basic</button>
+        <a href="{% url 'my_thumbnails_200' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 200</button>
         </a>
         {% if user.premium or user.enterprise %}      
-        <a href="{% url 'my_thumbnails_premium' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Premium</button>
-        </a> 
-        {% endif %}
-        {% if user.enterprise %}        
-        <a href="{% url 'my_thumbnails_enterprise' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Enterprise</button>
+        <a href="{% url 'my_thumbnails_400' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 400</button>
+        </a>     
+        <a href="{% url 'my_thumbnails_original' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Original</button>
         </a> 
         {% endif %} 
     </div>

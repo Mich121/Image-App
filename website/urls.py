@@ -5,7 +5,7 @@ urlpatterns = [
     path('', views.Home.as_view(), name='home'),
     path('upload_image/', views.AddImage.as_view(), name='upload_image'),
     path('my_images/', views.MyImages.as_view(), name='my_images'),
-    path('my_thumbnails_basic/', views.MyThumbnails_Basic.as_view(), name='my_thumbnails_basic'),
-    path('my_thumbnails_premium/', views.MyThumbnails_Premium.as_view(), name='my_thumbnails_premium'),
-    path('my_thumbnails_enterprise/', views.MyThumbnails_Enterprise.as_view(), name='my_thumbnails_enterprise'),
+    path('my_thumbnails_200/', views.MyThumbnails_200.as_view(), name='my_thumbnails_200'),
+    path('my_thumbnails_400/', views.MyThumbnails_400.as_view(), name='my_thumbnails_400'),
+    path('my_thumbnails_original/', views.MyThumbnails_Original.as_view(), name='my_thumbnails_original'),
 ]

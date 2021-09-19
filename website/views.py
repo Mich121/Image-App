@@ -1,6 +1,6 @@
 from django.views import generic
-from website.serializers import ImageSerializer, Thumbnail_Basic_Serializer, Thumbnail_Premium_Serializer, Thumbnail_Enterprise_Serializer
-from .models import Images, Thumbnail_Basic, Thumbnail_Premium, Thumbnail_Enterprise
+from website.serializers import ImageSerializer, Thumbnail_200_Serializer, Thumbnail_400_Serializer, Thumbnail_Original_Serializer
+from .models import Images, Thumbnail_200, Thumbnail_400, Thumbnail_Original
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -27,26 +27,26 @@ class MyImages(LoginRequiredMixin, generics.ListCreateAPIView):
     def get_queryset(self):
         return Images.objects.filter(owner=self.request.user)
 
-class MyThumbnails_Basic(LoginRequiredMixin, generics.ListCreateAPIView):
+class MyThumbnails_200(LoginRequiredMixin, generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = Thumbnail_Basic_Serializer
+    serializer_class = Thumbnail_200_Serializer
     login_url = 'login'
 
     def get_queryset(self):
-        return Thumbnail_Basic.objects.filter(owner=self.request.user)
+        return Thumbnail_200.objects.filter(owner=self.request.user)
         
-class MyThumbnails_Premium(LoginRequiredMixin, generics.ListCreateAPIView):
+class MyThumbnails_400(LoginRequiredMixin, generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = Thumbnail_Premium_Serializer
+    serializer_class = Thumbnail_400_Serializer
     login_url = 'login'
 
     def get_queryset(self):
-        return Thumbnail_Premium.objects.filter(owner=self.request.user) 
+        return Thumbnail_400.objects.filter(owner=self.request.user) 
 
-class MyThumbnails_Enterprise(LoginRequiredMixin, generics.ListCreateAPIView):
+class MyThumbnails_Original(LoginRequiredMixin, generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
-    serializer_class = Thumbnail_Enterprise_Serializer
+    serializer_class = Thumbnail_Original_Serializer
     login_url = 'login'
 
     def get_queryset(self):
-        return Thumbnail_Enterprise.objects.filter(owner=self.request.user)
+        return Thumbnail_Original.objects.filter(owner=self.request.user)

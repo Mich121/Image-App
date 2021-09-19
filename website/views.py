@@ -1,6 +1,6 @@
 from django.views import generic
-from website.serializers import ImageSerializer, Thumbnail_200_Serializer, Thumbnail_400_Serializer, Thumbnail_Original_Serializer
-from .models import Images, Thumbnail_200, Thumbnail_400, Thumbnail_Original
+from website.serializers import ImageSerializer, Thumbnail_200_Serializer, Thumbnail_400_Serializer
+from .models import Images, Thumbnail_200, Thumbnail_400
 from rest_framework import generics
 from rest_framework.permissions import IsAuthenticated
 from django.contrib.auth.mixins import LoginRequiredMixin
@@ -19,7 +19,18 @@ class AddImage(LoginRequiredMixin, generics.CreateAPIView):
     def perform_create(self, serializer):
         serializer.save(owner=self.request.user)
 
-class MyImages(LoginRequiredMixin, generics.ListCreateAPIView):
+class MyImages(LoginRequiredMixin, generic.ListView):
+    model = Images
+    template_name = 'my_images.html'
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        user = self.request.user
+        images = Images.objects.filter(owner=user.id)
+        context['images'] = images
+        return context
+
+class MyImagesLink(LoginRequiredMixin, generics.ListCreateAPIView):
     permission_classes = [IsAuthenticated]
     serializer_class = ImageSerializer
     login_url = 'login'
@@ -42,11 +53,3 @@ class MyThumbnails_400(LoginRequiredMixin, generics.ListCreateAPIView):
 
     def get_queryset(self):
         return Thumbnail_400.objects.filter(owner=self.request.user) 
-
-class MyThumbnails_Original(LoginRequiredMixin, generics.ListCreateAPIView):
-    permission_classes = [IsAuthenticated]
-    serializer_class = Thumbnail_Original_Serializer
-    login_url = 'login'
-
-    def get_queryset(self):
-        return Thumbnail_Original.objects.filter(owner=self.request.user)

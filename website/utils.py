@@ -1,4 +1,4 @@
-from .models import Thumbnail_200, Thumbnail_400, Thumbnail_Original
+from .models import Thumbnail_200, Thumbnail_400
 from PIL import Image
 
 def Make_Thumbnail(path, height, width, name, instance):
@@ -11,5 +11,3 @@ def Make_Thumbnail(path, height, width, name, instance):
             Thumbnail_200.objects.create(image_id=instance, owner=instance.owner, thumb_200=f"thumbnails/thumbnail_{height}x{width}_" + name)
         elif height == 400:
             Thumbnail_400.objects.create(image_id=instance, owner=instance.owner, thumb_400=f"thumbnails/thumbnail_{height}x{width}_" + name)
-        else:
-            Thumbnail_Original.objects.create(image_id=instance, owner=instance.owner, thumb_original = f"thumbnails/thumbnail_{height}x{width}_" + name)

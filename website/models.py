@@ -27,11 +27,3 @@ class Thumbnail_400(models.Model):
 
     def __str__(self):
         return str(self.image_id.title) + '_thumbnail_400_' + ' | '  + str(self.image_id.owner)
-        
-class Thumbnail_Original(models.Model):
-    image_id = models.ForeignKey(Images, on_delete=models.CASCADE)
-    owner = models.ForeignKey(CustomUser, on_delete=models.CASCADE)
-    thumb_original = models.ImageField(upload_to='thumbnails/')
-
-    def __str__(self):
-        return str(self.image_id.title) + '_thumbnail_original_' + ' | ' + str(self.image_id.owner)

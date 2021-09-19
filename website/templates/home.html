@@ -11,13 +11,13 @@
         <a href="{% url 'my_thumbnails_200' %}" style="text-decoration: none;">
             <button type="button" class="btn btn-info btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 200</button>
         </a>
-        {% if user.premium or user.enterprise %}      
+        {% if user.premium or user.enterprise %}     
         <a href="{% url 'my_thumbnails_400' %}" style="text-decoration: none;">
             <button type="button" class="btn btn-success btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails 400</button>
-        </a>     
-        <a href="{% url 'my_thumbnails_original' %}" style="text-decoration: none;">
-            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Thumbnails Original</button>
         </a> 
+        <a href="{% url 'my_images_link' %}" style="text-decoration: none;">
+            <button type="button" class="btn btn-primary btn-lg btn-block" style="height: 300px; width: 300px; color:white;">My Images Link</button>
+        </a>    
         {% endif %} 
     </div>
 {% endblock content %}  

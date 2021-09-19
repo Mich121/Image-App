@@ -16,10 +16,8 @@ def create_thumbnail(sender, instance, created, **kwargs):
             elif instance.owner.premium:
                 Make_Thumbnail(path, 200, 200, name, instance)
                 Make_Thumbnail(path, 400, 400, name, instance)
-                Make_Thumbnail(path, instance.image_height, instance.image_width, name, instance)
             elif instance.owner.enterprise:
                 Make_Thumbnail(path, 200, 200, name, instance)
                 Make_Thumbnail(path, 400, 400, name, instance)
-                Make_Thumbnail(path, instance.image_height, instance.image_width, name, instance)
         except:
             return Response({'Error':'Thumbnails have not been created!'}, status=status.HTTP_417_EXPECTATION_FAILED)

@@ -15,3 +15,7 @@ In dockerize unit of app, you will have sqlite data base. There you will have sa
 username: admin</br>
 password: admin</br>
 <hr>
+![z1](https://user-images.githubusercontent.com/79859600/133942724-29b01f0b-bfa6-47a4-8f9f-3511707d77be.png)
+![z2](https://user-images.githubusercontent.com/79859600/133942743-2f8ab298-35d5-45f8-b194-2823e41e926a.png)
+![z4](https://user-images.githubusercontent.com/79859600/133942745-7cc59120-ed9b-4c14-badc-aa3daafcb0c8.png)
+![z5](https://user-images.githubusercontent.com/79859600/133942747-0d9010a2-64f3-45c5-9dd9-93e53c19feb3.png)

@@ -2,7 +2,7 @@
 Technologies: Python + Django + REST Framework + HTML + Bootstrap + CSS
 <hr>
 --------------------------DOCKER--------------------------
-step to download unit of app:</br>
+</br>step to download unit of app:</br>
 1.docker pull 375162749183/image_app </br> 
 2.docker run --rm -p 8000:8000 --name container_name image_id </br>
 3.and enter to: http://127.0.0.1:8000/ </br>
